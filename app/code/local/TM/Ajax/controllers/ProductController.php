@@ -56,7 +56,7 @@ class TM_Ajax_ProductController extends Mage_Catalog_ProductController
         } else {
             $result .= Mage::helper('catalog')->__('Error. Product not found');
         }
-        echo $result;
+        $this->getResponse()->setBody($result);
     }
 }
 

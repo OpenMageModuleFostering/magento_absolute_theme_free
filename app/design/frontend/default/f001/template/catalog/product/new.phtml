@@ -20,16 +20,16 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php 
+<?php
 $_columnsCount = 4;
 if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
 <div class="box recently">
     <div class="category-head">
-        <h2 class="subtitle"><?php echo $this->__('New Products') ?></h2>
+<h2 class="subtitle"><?php echo $this->__('New Products') ?></h2>
     </div>
     <?php $i=0; foreach ($_products->getItems() as $_product): ?>
       <?php if ($i++%$_columnsCount==0): ?>
@@ -41,15 +41,17 @@ if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
                 <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
                     <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(150, 150) ?>" width="150" height="150" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
                 </a>
-            </p> 
+            </p>
             <h5><a class="product-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>)"><?php echo $this->htmlEscape($_product->getName()) ?></a></h5>
             <?php echo $this->getPriceHtml($_product, true, $this->getPriceSuffix()) ?>
-            <?php if($_product->isSaleable()): ?>
-            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
-            <?php else: ?>
-            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-            <?php endif ?>
-        </li>
+                <div class="actions">
+                    <?php if($_product->isSaleable()): ?>
+                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                </div>
+            </li>
         <?php if ($i%$_columnsCount==0 || $i==count($_products)): ?>
     </ol>
         <?php endif ?>
