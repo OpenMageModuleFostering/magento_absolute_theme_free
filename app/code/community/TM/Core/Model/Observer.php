@@ -10,6 +10,10 @@ class TM_Core_Model_Observer
     public function preDispatch(Varien_Event_Observer $observer)
     {
         if (Mage::getSingleton('admin/session')->isLoggedIn()) {
+            if (!Mage::getStoreConfig('tmcore/notification/enabled')) {
+                return;
+            }
+
             $feedModel = Mage::getModel('tmcore/notification_feed');
             $feedModel->checkUpdate();
         }
@@ -49,6 +53,14 @@ class TM_Core_Model_Observer
                 }
             }
             $updates->appendChild($node);
+        }
+    }
+
+    public function onBeforeRenderLayout()
+    {
+        $layout = Mage::app()->getLayout();
+        if ($debug = $layout->getBlock(TM_Core_Helper_Debug::POPUP_NAME)) {
+            $layout->getBlock('content')->append($debug);
         }
     }
 }
