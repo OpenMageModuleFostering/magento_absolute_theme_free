@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/magento_absolute_theme_free",
+    "type": "magento-module",
+    "license": "Creative-Commons-License",
+    "homepage": "",
+    "description": "Magento Absolute Theme",
+    "authors": [
+    {
+        "name": "TemplatesMaster",
+        "email": "support@templates-master.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
