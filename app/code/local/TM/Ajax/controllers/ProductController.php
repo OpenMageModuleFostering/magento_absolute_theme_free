@@ -43,8 +43,10 @@ class TM_Ajax_ProductController extends Mage_Catalog_ProductController
             $result .= "<div class='divider'></div>";
             
             if ($product->getShortDescription()) {
+			
+				// $ShortDescription=$this->helper('catalog/output')->productAttribute($_product, $_product->getShortDescription(), 'short_description');
                 $result .= "<h4>".Mage::helper('catalog')->__('Quick Overview')."</h4>
-                    <div class='short-description'>" . nl2br($product->getShortDescription()). "</div>";
+                <div class='short-description'>" . nl2br($product->getShortDescription()). "</div>";
             }
             
             $result .= "</div>

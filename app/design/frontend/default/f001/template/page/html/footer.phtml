@@ -36,8 +36,18 @@
 	<p class="legality">
 	    <?php echo $this->getCopyright() ?>
 	    <!-- This theme is avalable udner Creative Commons License http://creativecommons.org/licenses/by/3.0/    Removing links to is similarly prohibited. --><a href="http://templates-master.com" title="Magento Theme">Magento Theme</a> by <a href="http://templates-master.com" title="Magento Theme">Templates Master</a><!-- Removing links to is similarly prohibited.  -->
-	     <?php echo $this->getChildHtml('store_switcher') ?>
+	    <?php echo $this->getChildHtml('store_switcher') ?>
 	</p>
 	<div class="clear"></div>
     </div>
 </div>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/productInfo.js') ?>"></script>
+<script type="text/javascript">
+    Event.observe(window, 'load', function() {
+        new ProductInfo('.ajax', '.product-image', {
+            'loader': "<?php echo $this->getSkinUrl('images/ajax_loader.gif')?>",
+            'loadingMessage': "<?php echo $this->__('Loading') ?>"
+        });
+    });
+</script>
