@@ -20,7 +20,7 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
@@ -37,12 +37,12 @@ if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
         <?php endif; ?>
         <li class="item">
             <p class="product-image">
-                <a href="<?php echo $this->getUrl('ajax/product/quickview/id/' . $_product->getId()) ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="ajax"><?php echo $this->__('Quick view') ?></a>
-                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
-                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(150, 150) ?>" width="150" height="150" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+                <a href="<?php echo $this->getUrl('ajax/product/quickview/id/' . $_product->getId()) ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="ajax"><?php echo $this->__('Quick view') ?></a>
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>">
+                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(150, 150) ?>" width="150" height="150" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
                 </a>
             </p>
-            <h5><a class="product-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>)"><?php echo $this->htmlEscape($_product->getName()) ?></a></h5>
+            <h5><a class="product-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>)"><?php echo $this->escapeHtml($_product->getName()) ?></a></h5>
             <?php echo $this->getPriceHtml($_product, true, $this->getPriceSuffix()) ?>
                 <div class="actions">
                     <?php if($_product->isSaleable()): ?>

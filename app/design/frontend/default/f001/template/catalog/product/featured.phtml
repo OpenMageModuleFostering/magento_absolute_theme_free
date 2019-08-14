@@ -9,9 +9,9 @@
                 <?php $i = 0; foreach ($_products->getItems() as $_product): ?>
                 <li>
                     <p class="product-image">
-                        <a href="<?php echo $this->getUrl('ajax/product/quickview/id/' . $_product->getId()) ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="ajax"><?php echo $this->__('Quick view') ?></a>
-                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
-                            <img class="product-image" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(130, 170) ?>" width="130" height="170" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+                        <a href="<?php echo $this->getUrl('ajax/product/quickview/id/' . $_product->getId()) ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="ajax"><?php echo $this->__('Quick view') ?></a>
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>">
+                            <img class="product-image" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(130, 170) ?>" width="130" height="170" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
                         </a>
                     </p>
                 </li>

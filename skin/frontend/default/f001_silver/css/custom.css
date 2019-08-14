@@ -322,7 +322,7 @@ div.sliderdescription:hover{background:#fff}
 .catalog-listing .product-image{position:relative}
 .catalog-listing .product-image .ajax{position:absolute; display:none; z-index:20}
 
-a.ajax{text-decoration:none; border:1px solid #888; background:#bbb; color:#fff; font-weight:bold; padding:0px 10px}
+a.ajax{text-decoration:none; border:1px solid #888; background:#bbb; color:#fff; font-weight:bold; padding:1px 5px; text-align: center;}
 a.ajax:hover{text-decoration:none}
 
 
